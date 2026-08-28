@@ -61,6 +61,14 @@ div[data-testid="stImage"] img {
     object-fit: cover !important;
     display: block !important;
 }
+.card {
+    background: rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 15px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+}
 </style>
 """,unsafe_allow_html=True)
 
@@ -84,7 +92,7 @@ if st.session_state["page"] == "Welcome":
         st.balloons()
         st.rerun()
 
-    st.markdown("<div style='margin-bottom:20px;',</div>",unsafe_allow_html=True)
+    st.markdown("<div style='margin-bottom:20px;'</div>",unsafe_allow_html=True)
     st.markdown("<h2 style='text-align:center;'>❤️❤️❤️I love you both so much.❤️❤️❤️</h2>",unsafe_allow_html=True)
 
 elif st.session_state.page == "Slideshow":
@@ -97,7 +105,6 @@ elif st.session_state.page == "Slideshow":
     with col1:
         ph1 = st.empty()
     with col2:
-        # st.markdown("<div style='margin-top:40px;',</div>",unsafe_allow_html=True)
         ph2 = st.empty()
     with col3:
             ph3 = st.empty()
@@ -113,10 +120,70 @@ elif st.session_state.page == "Slideshow":
 elif st.session_state.page == "message":
     st.balloons()
     name = st.session_state.name
-    messages = {
-        "Hardik": "HArdiiiikkk",
-        "Aryan": "ARRRyyyana"
+
+    poem = """
+    With the Rakhi I tie every year,<br>
+    With your promise to protect me,<br>
+    And mine to be your—<br>
+    Elder sister,<br>
+    Mother,<br>
+    Your Best Friend.<br><br>
+    This bond of ours—<br>
+    Pure, innocent and beautiful,<br>
+    Will always be above every relation.<br>
+    No matter how old you grow,<br>
+    No matter how annoying you get,<br>
+    You'll always be loved by me.<br><br>
+    And don't worry,<br>
+    I'll talk to papa<br>
+    About your share in the property 😌<br>
+    Let's stay together, always.<br>
+    Now, where's my gift? 😤
+    """
+
+    personal = {
+            "Hardik": """I may not be the smartest, kindest, or funniest sister for you.<br>
+        But I love you in my own way, very much.<br>
+        Sometimes you do nothing and just talk to me, but I get annoyed — I don't know why.<br>
+        When you treat me like I'm the younger one, I want to kill you.<br>
+        Basically, I've wanted to kill you almost all the time.<br>
+        But I've been tolerating you since you were born, and now I can't imagine my life without you.<br>
+        Let's always bicker and reconcile over food and our own goofy jokes.<br>
+        Which year am I going to get my gift, huh?<br><br>
+        You've supported me, believed in me, loved me when I couldn't love myself.<br>
+        I don't know what I would've done without you two.<br>
+        At last, I just want to say that I love you, and always will.<br>
+        I will always support your dreams.<br>
+        Just always know that your elder (sometimes younger) sister will be there for you.<br>
+        — Kiran 🧡""",
+
+            "Aryan": """I may not be the smartest, kindest, or funniest sister for you.<br>
+        But I love you in my own way, very much.<br>
+        What to say — you're the best person I have in this house, my ultimate support.<br>
+        You pamper me like I'm the younger one, make me feel loved.<br>
+        You give me your food — even when I don't give you mine.<br>
+        You motivate me, spoil me with your little precious gifts,<br>
+        give me money when I'm the one who should be giving you money.<br>
+        You see, it's like you're the elder brother and I'm the youngest.<br><br>
+        You've supported me, believed in me, loved me when I couldn't love myself.<br>
+        I don't know what I would've done without you two.<br>
+        At last, I just want to say that I love you, and always will.<br>
+        I will always support your dreams.<br>
+        Just always know that your elder (sometimes younger) sister will be there for you.<br>
+        — Kiran 🧡"""
     }
-    msg = messages.get(name,"Happy Raksha Bandhan!")
-    st.markdown(f"<h1 style='text-align:left;'>Dear {name}, </h1>",unsafe_allow_html=True)
-    st.markdown(f"<h3 style='text-align:left;'>{msg}</h3>",unsafe_allow_html=True)
+
+    st.markdown(f"<h3 style='text-align:center;'>🎊 Dear {name}! 🎊</h1>",
+                unsafe_allow_html=True)
+
+    col1,gap, col2 = st.columns([1,0.05,1])
+
+    with col1:
+        st.markdown(f'<div class="card">{poem}</div>', 
+                unsafe_allow_html=True)
+
+    with col2:
+        msg = personal.get(name, "Happy Raksha Bandhan! 🎀")
+        st.markdown(f'<div class="card">{msg}</div>', 
+                unsafe_allow_html=True)
+
