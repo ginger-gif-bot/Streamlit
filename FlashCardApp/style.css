@@ -1,0 +1,10 @@
+.card {
+    background-color: rgb(165, 165, 232);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 2px 4px 10px rgba(96, 22, 181, 0.1);
+    text-align: center;
+}
+.stApp {
+    background-color: rgb(209, 213, 144);
+}
