@@ -96,8 +96,8 @@ if st.session_state["page"] == "Welcome":
     st.markdown("<h2 style='text-align:center;'>❤️❤️❤️I love you both so much.❤️❤️❤️</h2>",unsafe_allow_html=True)
 
 elif st.session_state.page == "Slideshow":
-    photos = {"Aryan":["a1.jpeg","ak.jpeg","a2.jpeg"],
-              "Hardik":["h1.jpeg","hk.jpeg","h2.jpeg"]}   
+    photos = {"Aryan":["rakhi/a1.jpeg","rakhi/ak.jpeg","rakhi/a2.jpeg"],
+              "Hardik":["rakhi/h1.jpeg","rakhi/hk.jpeg","rakhi/h2.jpeg"]}   
     name = st.session_state.name
     st.subheader(f"Hello, {name}")
     person_photos = photos.get(name,[]) 
