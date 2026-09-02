@@ -82,17 +82,28 @@ h3 {
     color: #310007 !important;
 }
 
+.stTextInput > div,
 .stTextInput > div > div {
-    background: radial-gradient(#310007,#78463a,#BC8F8F) !important;
+    background: radial-gradient(#310007, #78463a, #BC8F8F) !important;
+    border-radius: 50px !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    height: 55px !important;
+}
+
+.stTextInput > div > div > input:focus {
+    background: transparent !important;
     color: #e6ceaf !important;
     border: none !important;
-    border-radius: 50px !important;
-    padding: 10px !important;
-    width: 100% !important;
     outline: none !important;
     box-shadow: none !important;
     font-size: 24px !important;
     font-weight: bold;
     font-family: "Fredoka", sans-serif !important;
+    padding-left: 20px !important;
+}
 
+.stTextInput div[data-testid="InputInstructions"] {
+    display: none !important;
 }
