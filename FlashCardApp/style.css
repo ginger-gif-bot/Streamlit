@@ -1,10 +1,61 @@
 .card {
-    background-color: rgb(165, 165, 232);
-    border-radius: 12px;
+    background-color: #ece9e9;
+    border-radius: 16px;
     padding: 40px;
-    box-shadow: 2px 4px 10px rgba(96, 22, 181, 0.1);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
     text-align: center;
+    color: #2d2d2d;
 }
 .stApp {
-    background-color: rgb(209, 213, 144);
+    background-color: #1f3555;
+}
+
+h1 {
+    color: hsl(300, 51%, 51%) !important;
+    text-align: center;
+}
+
+header {visibility: hidden;}
+.block-container {padding-top: 1rem;}
+
+.stTextInput > div > div > input {
+    background-color: #99c294 !important;
+    color: rgb(16, 15, 15) !important;
+    border: 2px solid #00c9a7 !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+}
+
+.stButton > button {
+    background-color: aqua;
+    color: blueviolet;
+    border: 10px #410202 !important;
+    border-radius: 10px ;
+    padding: 10px 12px ;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 700 !important;
+}
+
+.stButton > button:hover {
+    background-color: #99c294;
+    color:hsl(300, 51%, 51%)
+}
+
+[data-testid="stAlert"] {
+    border: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+}
+[data-testid="stAlertContainer"] p {
+    background-color: rgb(97, 144, 225) !important;
+    border-radius: 10px !important;
+    /* border: none !important;
+    border-left: none !important; */
+}
+
+[data-testid="stAlertContentError"] p {
+    color: #e12184 !important;
 }
