@@ -1,6 +1,8 @@
 import streamlit as st
-import os
+import os, io
 import time
+import base64
+from PIL import Image
 
 style = os.path.join("birthday","style.css")
 with open(style) as f:
@@ -12,7 +14,29 @@ if "page" not in st.session_state:
 if "page3_frame" not in st.session_state:
         st.session_state.page3_frame = 0
 
+# DEV MODE - remove before giving to friend
+st.sidebar.header("Dev Navigation")
+page_jump = st.sidebar.selectbox("Jump to page", [1,2,3,4,5,6,7])
+if st.sidebar.button("Go"):
+    st.session_state.page = page_jump
+    st.session_state.page3_frame = 0
+    st.session_state.page3_done = False
+    st.rerun()
+
 page_cont = st.empty()
+
+@st.cache_data
+def load_photos(folder,photo_list):
+    imgs_html = ""
+    for photo in photo_list:
+        path = os.path.join(folder,photo)
+        img = Image.open(path)
+        img.thumbnail((600,300))
+        buffer = io.BytesIO()
+        img.save(buffer,format="JPEG",quality=75)
+        data = base64.b64encode(buffer.getvalue()).decode()
+        imgs_html += f"<img src='data:image/jpeg;base64,{data}'>" 
+    return imgs_html
 
 if st.session_state.page == 1:
     with page_cont.container():
@@ -63,7 +87,7 @@ elif st.session_state.page == 3:
             with col2:
                 st.markdown("<br><br>",unsafe_allow_html=True)
                 st.button("But who is it? ❤️")
-                st.markdown("<h4>Enter your name:</h4>",unsafe_allow_html=True)
+                st.markdown("<h4>Enter your name :</h4>",unsafe_allow_html=True)
                 name = st.text_input(" ",label_visibility="hidden").upper()
                 if name == "SNEHAL":
                     st.session_state.page +=1
@@ -72,4 +96,35 @@ elif st.session_state.page == 3:
                     st.markdown("<h3>It's not you!!🙃</h3>",unsafe_allow_html=True)
 
 elif st.session_state.page == 4:
-    st.write("avaxvasuv")
+    pass
+
+elif st.session_state.page == 5:
+    folder = r"birthday\photos"
+    files = os.listdir(folder)
+    row_1 = files[:13]
+    row_2 = files[13:27]
+    row_3 = files[27:]
+
+    imgs_html_1 = load_photos(folder,tuple(row_1))
+    imgs_html_2 = load_photos(folder,tuple(row_2))
+    imgs_html_3 = load_photos(folder,tuple(row_3))
+
+    with page_cont.container():
+        st.markdown(f"""
+            <div class='row-wrapper'>
+                <div class='row-left'> {imgs_html_1}</div>
+            </div>""",unsafe_allow_html=True)
+        st.markdown(f"""
+                <div class='row-wrapper'>
+                    <div class='row-left'> {imgs_html_2}</div>
+                </div>""",unsafe_allow_html=True)
+        st.markdown(f"""
+                <div class='row-wrapper'>
+                    <div class='row-left'> {imgs_html_3}</div>
+                </div>""",unsafe_allow_html=True)
+        time.sleep(10)
+        st.session_state.page +=1
+        st.rerun()
+
+elif st.session_state.page == 6:
+    st.write("ugduwgdiwgciwd")
