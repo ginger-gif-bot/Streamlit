@@ -45,11 +45,11 @@ elif st.session_state.page == 2:
         
 elif st.session_state.page == 3:
     frames = [
-        """<h1> Hmm... </h1>""",
-        """<h1> Let's See... </h1>""",
-        """<h1> Who could it be? 🤔 </h1>""",
-        """<h1> Ohh!!!🫢 </h1>""",
-        """<div class='page3'><h1> It's my🎀 FAVORITE❤️ person's Birthday </h1></div>""",
+        """<div class='page3'><h1> Hmm... </h1></div>""",
+        """<div class='page3'><h1> Let's See... </h1></div>""",
+        """<div class='page3'><h1> Who could it be? 🤔 </h1></div>""",
+        """<div class='page3'><h1> Ohh!!!🫢 </h1></div>""",
+        """<div class='page3_sp'><h1> It's my🎀 FAVORITE❤️ person's Birthday </h1></div>""",
     ]
     
     if st.session_state.page3_frame < len(frames):
