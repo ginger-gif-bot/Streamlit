@@ -2,6 +2,7 @@ import streamlit as st
 import os, io
 import time
 import base64
+import random
 from PIL import Image
 
 style = os.path.join("birthday","style.css")
@@ -96,7 +97,27 @@ elif st.session_state.page == 3:
                     st.markdown("<h3>It's not you!!🙃</h3>",unsafe_allow_html=True)
 
 elif st.session_state.page == 4:
-    pass
+    with page_cont.container():
+        st.markdown(f"""
+        <div class='bday'>HAPPY BIRTHDAY</div>
+        <div class='name'>Snehal</div>
+        """,unsafe_allow_html=True)
+
+        emojis = ["❤️","✨","🎊","🎈","🎉","🎂","🧁","🫶🏻","😘","🌸","🍀"]
+        confetti_pieces = ""
+        for i in range(30):
+            emoji = random.choice(emojis)
+            left = random.randint(0, 100)
+            delay = round(random.uniform(0, 4), 1)
+            duration = round(random.uniform(2, 5), 1)
+            size = random.randint(20, 40)
+            confetti_pieces += f"<span class='confetti-piece' style='left:{left}%; animation-duration:{duration}s; animation-delay:{delay}s; font-size:{size}px;'>{emoji}</span>"
+
+        st.markdown(f"<div class='confetti-container'>{confetti_pieces}</div>",
+                    unsafe_allow_html=True)
+        time.sleep(5)
+        st.session_state.page += 1
+        st.rerun()
 
 elif st.session_state.page == 5:
     folder = r"birthday\photos"
@@ -127,4 +148,21 @@ elif st.session_state.page == 5:
         st.rerun()
 
 elif st.session_state.page == 6:
-    st.write("ugduwgdiwgciwd")
+    col1 ,col2 = st.columns([1,1])
+    with col1:
+        st.markdown(f"""
+            <div class='card'>poem
+            </div>
+        """,unsafe_allow_html=True)
+    with col2:
+        st.markdown(f"""
+            <div class='card'>msg
+            </div>
+        """,unsafe_allow_html=True)
+
+    if st.button("One Last Surprise🎁"):
+        st.session_state.page +=1
+        st.rerun()
+
+elif st.session_state.page == 6:
+    st.write("awduwfvuwfuwfe")
