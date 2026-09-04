@@ -299,7 +299,10 @@ video[data-testid="stVideo"] {
     text-align: center;
     font-size: 30px !important;
     font-family: "Satisfy" !important;
-    margin-top: 445px !important;
+    margin-top: 448px !important;
     color: #e4f5f8 !important;
 } 
 
+.stAudio {
+    display: none !important;
+}

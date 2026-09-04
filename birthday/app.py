@@ -4,6 +4,7 @@ import time
 import base64
 import random
 from PIL import Image
+import time as _time
 
 style = os.path.join("birthday","style.css")
 with open(style) as f:
@@ -15,7 +16,7 @@ if "page" not in st.session_state:
 if "page3_frame" not in st.session_state:
         st.session_state.page3_frame = 0
 
-page_cont = st.empty()
+
 
 @st.cache_data
 def load_photos(folder,photo_list):
@@ -29,6 +30,30 @@ def load_photos(folder,photo_list):
         data = base64.b64encode(buffer.getvalue()).decode()
         imgs_html += f"<img src='data:image/jpeg;base64,{data}'>" 
     return imgs_html
+
+@st.cache_data
+def load_audio(path):
+    with open(path, "rb") as f:
+        data = base64.b64encode(f.read()).decode()
+    return data
+
+music_map = {
+    1: None,
+    2: r"birthday\other_music.mp3",
+    3: r"birthday\other_music.mp3",
+    4: r"birthday\bday_music.mp3",
+    5: r"birthday\memory_music.mp3",
+    6: r"birthday\letter_music.mp3",
+    7: None,
+}
+
+current_music = music_map.get(st.session_state.page)
+if current_music:
+    with open(current_music, "rb") as f:
+        audio_bytes = f.read()
+    st.audio(audio_bytes, format="audio/mp3", autoplay=True)
+    
+page_cont = st.empty()
 
 if st.session_state.page == 1:
     with page_cont.container():
@@ -139,88 +164,89 @@ elif st.session_state.page == 5:
         st.rerun()
 
 elif st.session_state.page == 6:
-    msg = """
-    Dear Snehal,<br><br>
+    with page_cont.container():
+        msg = """
+        Dear Snehal,<br><br>
 
-    Once, when the stars fell from the cradle of loneliness,<br>
-    I made a wish — to find a friend who could be the twin of me.<br>
-    Perhaps the stars listened, because I got you.<br><br>
+        Once, when the stars fell from the cradle of loneliness,<br>
+        I made a wish — to find a friend who could be the twin of me.<br>
+        Perhaps the stars listened, because I got you.<br><br>
 
-    I have friends, but no one like you.<br>
-    When I speak to you, there's a different kind of comfort — like after a long time,<br>
-    I am speaking to myself, loud enough to hear through my ears.<br>
-    The only good thing that happened to me during the NEET era was you.<br><br>
+        I have friends, but no one like you.<br>
+        When I speak to you, there's a different kind of comfort — like after a long time,<br>
+        I am speaking to myself, loud enough to hear through my ears.<br>
+        The only good thing that happened to me during the NEET era was you.<br><br>
 
-    I don't have enough words to express how grateful I am to have you as a friend.<br>
-    And because we are kinda two bodies and one soul,<br>
-    I need to tell you something:<br>
-    Never doubt yourself,<br>
-    Never think you're less pretty than anyone (because you're not),<br>
-    Never settle for less because of overthinking (because you deserve everything).<br><br>
+        I don't have enough words to express how grateful I am to have you as a friend.<br>
+        And because we are kinda two bodies and one soul,<br>
+        I need to tell you something:<br>
+        Never doubt yourself,<br>
+        Never think you're less pretty than anyone (because you're not),<br>
+        Never settle for less because of overthinking (because you deserve everything).<br><br>
 
-    And I know me saying this probably won't help when you're surrounded by darkness —<br>
-    Because it doesn't, seriously, it doesn't.<br>
-    But I want to tell you something I learned throughout my life:<br>
-    Life is like clouds — it moves very slowly; sometimes so slowly that it feels like it isn't moving at all.<br>
-    Life can sometimes become too difficult to tolerate, and we feel like we'll be stuck here forever.<br>
-    But when you take a time-lapse of the clouds, you'll notice they never stopped moving — they were moving with you.<br>
-    And in life also, when you look at the time-lapse, you'll realize the difficult moment has already passed.<br>
-    And life moves during the happy times too — so enjoy every moment,<br>
-    Don't think "I'll do it later." Later never comes.<br><br>
+        And I know me saying this probably won't help when you're surrounded by darkness —<br>
+        Because it doesn't, seriously, it doesn't.<br>
+        But I want to tell you something I learned throughout my life:<br>
+        Life is like clouds — it moves very slowly; sometimes so slowly that it feels like it isn't moving at all.<br>
+        Life can sometimes become too difficult to tolerate, and we feel like we'll be stuck here forever.<br>
+        But when you take a time-lapse of the clouds, you'll notice they never stopped moving — they were moving with you.<br>
+        And in life also, when you look at the time-lapse, you'll realize the difficult moment has already passed.<br>
+        And life moves during the happy times too — so enjoy every moment,<br>
+        Don't think "I'll do it later." Later never comes.<br><br>
 
-    I won't stretch it too long, cuz you might cry if I start to show my real writing talent 😏<br>
-    In short, you're perfect and can achieve everything you want.<br>
-    When you're unable to look at the time-lapse, just know I'll always love you no matter what.<br>
-    I'd help you bury the body because I'll always support you.<br>
-    Learn the guitar, sing songs, and fuck everyone else who makes you feel less (because you're perfect.)<br><br>
+        I won't stretch it too long, cuz you might cry if I start to show my real writing talent 😏<br>
+        In short, you're perfect and can achieve everything you want.<br>
+        When you're unable to look at the time-lapse, just know I'll always love you no matter what.<br>
+        I'd help you bury the body because I'll always support you.<br>
+        Learn the guitar, sing songs, and fuck everyone else who makes you feel less (because you're perfect.)<br><br>
 
-    (Scroll down for the last surprise 😚)
-    """
-    poem = """
-    Like the stars once fell,<br>
-    from the cradle of loneliness,<br>
-    I wished for a friend,<br>
-    I wished for a wave of happiness.<br><br>
+        (Scroll down for the last surprise 😚)
+        """
+        poem = """
+        Like the stars once fell,<br>
+        from the cradle of loneliness,<br>
+        I wished for a friend,<br>
+        I wished for a wave of happiness.<br><br>
 
-    Somehow, the stars that<br>
-    never listened to anyone,<br>
-    listened to me —<br>
-    and I got you as my twin.<br><br>
+        Somehow, the stars that<br>
+        never listened to anyone,<br>
+        listened to me —<br>
+        and I got you as my twin.<br><br>
 
-    You are like<br>
-    the sun that everyone wishes for<br>
-    in the cold winter,<br>
-    like the sunlight peeking under the ocean,<br>
-    like the moonlight in the pitch black night.<br><br>
+        You are like<br>
+        the sun that everyone wishes for<br>
+        in the cold winter,<br>
+        like the sunlight peeking under the ocean,<br>
+        like the moonlight in the pitch black night.<br><br>
 
-    And I wish that<br>
-    our friendship brings happiness and peace to us.<br>
-    Let's always shine brightly<br>
-    like the stars,<br>
-    let's always look towards the sun<br>
-    like the wildflowers.<br>
-    Let's be happy.<br>
-    """
-    col1 ,col2 = st.columns([1,1])
-    st.markdown("""
-    <style>
-    .block-container {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-        max-width: 100% !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-    with col1:
-        st.markdown(f"""
-            <div class='card'>{poem}</div>""",unsafe_allow_html=True)
-    with col2:
-        st.markdown(f"""
-            <div class='card'>{msg}</div>""",unsafe_allow_html=True)
+        And I wish that<br>
+        our friendship brings happiness and peace to us.<br>
+        Let's always shine brightly<br>
+        like the stars,<br>
+        let's always look towards the sun<br>
+        like the wildflowers.<br>
+        Let's be happy.<br>
+        """
+        col1 ,col2 = st.columns([1,1])
+        st.markdown("""
+        <style>
+        .block-container {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+            max-width: 100% !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+        with col1:
+            st.markdown(f"""
+                <div class='card'>{poem}</div>""",unsafe_allow_html=True)
+        with col2:
+            st.markdown(f"""
+                <div class='card'>{msg}</div>""",unsafe_allow_html=True)
 
-    if st.button("One Last Surprise🎁"):
-        st.session_state.page +=1
-        st.rerun()
+        if st.button("One Last Surprise🎁"):
+            st.session_state.page +=1
+            st.rerun()
 
 elif st.session_state.page == 7:
     with page_cont.container():
