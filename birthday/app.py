@@ -39,11 +39,11 @@ def load_audio(path):
 
 music_map = {
     1: None,
-    2: r"birthday\other_music.mp3",
-    3: r"birthday\other_music.mp3",
-    4: r"birthday\bday_music.mp3",
-    5: r"birthday\memory_music.mp3",
-    6: r"birthday\letter_music.mp3",
+    2: os.path.join("birthday", "other_music.mp3"),
+    3: os.path.join("birthday", "other_music.mp3"),
+    4: os.path.join("birthday", "bday_music.mp3"),
+    5: os.path.join("birthday", "memory_music.mp3"),
+    6: os.path.join("birthday", "letter_music.mp3"),
     7: None,
 }
 
@@ -136,7 +136,7 @@ elif st.session_state.page == 4:
         st.rerun()
 
 elif st.session_state.page == 5:
-    folder = r"birthday\photos"
+    folder = os.path.join("birthday","photos")
     files = os.listdir(folder)
     row_1 = files[:13]
     row_2 = files[13:27]
