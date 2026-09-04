@@ -304,5 +304,9 @@ video[data-testid="stVideo"] {
 } 
 
 .stAudio {
-    display: none !important;
+    position: absolute !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }

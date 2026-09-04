@@ -51,7 +51,7 @@ current_music = music_map.get(st.session_state.page)
 if current_music:
     with open(current_music, "rb") as f:
         audio_bytes = f.read()
-    st.audio(audio_bytes, format="audio/mp3", autoplay=True)
+    st.audio(audio_bytes, format="audio/mp3", autoplay=True, loop=True)
     
 page_cont = st.empty()
 
@@ -203,29 +203,35 @@ elif st.session_state.page == 6:
         (Scroll down for the last surprise 😚)
         """
         poem = """
-        Like the stars once fell,<br>
-        from the cradle of loneliness,<br>
-        I wished for a friend,<br>
-        I wished for a wave of happiness.<br><br>
+        Remember the orchid bracelet,<br>
+        the flower symbolising you,<br>
+        and the thread tying us.<br><br>
 
-        Somehow, the stars that<br>
-        never listened to anyone,<br>
-        listened to me —<br>
-        and I got you as my twin.<br><br>
+        The butterfly poem you wrote,<br>
+        the tissue paper with lipsticks,<br>
+        the poem that I treasure.<br><br>
 
-        You are like<br>
-        the sun that everyone wishes for<br>
-        in the cold winter,<br>
-        like the sunlight peeking under the ocean,<br>
-        like the moonlight in the pitch black night.<br><br>
+        The silly Q&amp;A we play,<br>
+        the dance videos we make —<br>
+        not caring about others.<br><br>
 
-        And I wish that<br>
-        our friendship brings happiness and peace to us.<br>
-        Let's always shine brightly<br>
-        like the stars,<br>
-        let's always look towards the sun<br>
-        like the wildflowers.<br>
-        Let's be happy.<br>
+        How excited we always are<br>
+        to meet after months,<br>
+        how excited we always are<br>
+        for our photos,<br>
+        how the food gets cold<br>
+        because our talk doesn't end.<br><br>
+
+        You're like —<br>
+        the wish from a fallen star,<br>
+        the wish finally answered,<br>
+        the wish that completed the fallen star.<br><br>
+
+        We're like —<br>
+        the rain and the ocean,<br>
+        one falls from the sky —<br>
+        and the other catches.<br>
+        Together we hold each other.<br>
         """
         col1 ,col2 = st.columns([1,1])
         st.markdown("""
