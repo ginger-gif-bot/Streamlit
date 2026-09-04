@@ -28,33 +28,53 @@ with open(style) as f:
 # st.markdown(f"""
 #     <div class='bday'>HAPPY BIRTHDAY</div>
 #     <div class='name'>Snehal</div>
-# """,unsafe_allow_html=True)
-col1 ,  col2, col_empty = st.columns([1,1,1])
-with col1:
-    st.markdown(f"""
-        <div class='card'>poem
-        </div>
-    """,unsafe_allow_html=True)
-with col2:
-    st.markdown(f"""
-        <div class='card'>msg
-        </div>
-    """,unsafe_allow_html=True)
+#  """,unsafe_allow_html=True)
+# col1 ,  col2, col_empty = st.columns([1,1,1])
+# with col1:
+#     st.markdown(f"""
+#         <div class='card'>poem
+#         </div>
+#     """,unsafe_allow_html=True)
+# with col2:
+#     st.markdown(f"""
+#         <div class='card'>msg
+#         </div>
+#     """,unsafe_allow_html=True)
 
-with col_empty:
-    st.markdown("""
-    <style>
-    .stButton button {
-        font-size: 10px !important;
-        font-weignt: 400px !important;
-        margin: -9px !important;
-        padding: 6px 18px !important;
-        border-radius: 20px !important;
-        background: radial-gradient(#310007,#78463a,#BC8F8F) !important;
-        color: #e6ceaf !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-    if st.button("One Last Surprise🎁"):
-        st.session_state.page +=1
-        st.rerun()
+# with col_empty:
+#     st.markdown("""
+#     <style>
+#     .stButton button {
+#         font-size: 10px !important;
+#         font-weignt: 400px !important;
+#         margin: -9px !important;
+#         padding: 6px 18px !important;
+#         border-radius: 20px !important;
+#         background: radial-gradient(#310007,#78463a,#BC8F8F) !important;
+#         color: #e6ceaf !important;
+#     }
+#     </style>
+#     """, unsafe_allow_html=True)
+#     if st.button("One Last Surprise🎁"):
+#         st.session_state.page +=1
+#         st.rerun()
+
+# with page_cont.container():
+# st.markdown("""
+#         <style>
+#         .block-container { padding: 0 !important;}
+#         iframe { width: 100% !important; height: 90vh !important;}
+#         .stVideo {
+#         padding: 0 !important;
+#         margin: 0 !important;
+#         width: 100% !important;
+#     }
+
+#     .stVideo > div {
+#         padding: 0 !important;
+#         width: 100% !important;
+#     }
+#         </style>""",unsafe_allow_html=True)
+
+
+st.video(os.path.join("birthday","video.mov"))

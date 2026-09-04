@@ -15,15 +15,6 @@ if "page" not in st.session_state:
 if "page3_frame" not in st.session_state:
         st.session_state.page3_frame = 0
 
-# DEV MODE - remove before giving to friend
-st.sidebar.header("Dev Navigation")
-page_jump = st.sidebar.selectbox("Jump to page", [1,2,3,4,5,6,7])
-if st.sidebar.button("Go"):
-    st.session_state.page = page_jump
-    st.session_state.page3_frame = 0
-    st.session_state.page3_done = False
-    st.rerun()
-
 page_cont = st.empty()
 
 @st.cache_data
@@ -164,5 +155,6 @@ elif st.session_state.page == 6:
         st.session_state.page +=1
         st.rerun()
 
-elif st.session_state.page == 6:
-    st.write("awduwfvuwfuwfe")
+elif st.session_state.page == 7:
+    with page_cont.container():
+        st.video(os.path.join("birthday","video.mov"))

@@ -263,4 +263,16 @@ body {
 
 }
 
-
+video[data-testid="stVideo"] {
+    position: fixed !important;
+    top: 2vh !important;
+    left: 2vw !important;
+    width: 96vw !important;
+    height: 96vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: cover !important;
+    border-radius: 20px;
+    display: block !important;
+    z-index: 0;
+}
