@@ -77,6 +77,7 @@ h1 {
     color: #e6ceaf !important;
     font-weight: bold !important;
     padding-top: -70px;
+
 }
 h4 {
     text-align: center;
@@ -242,37 +243,63 @@ body {
 }
 
 .card {
-    background: radial-gradient(#9fc3e6,#567c8d,#2f4156);
+    background: radial-gradient(#b2d1f0,#9ed4ed,#73a3d9);
     backdrop-filter: blur(20px);
     border-radius: 24px;
     padding: 50px 60px;
-    margin: 10px 20px;
-    max-width: 90%;
+    margin: 10px 5px;
+    max-width: 100% !important;
+    width: 100% !important;
     box-shadow: 0 0 30px rgba(150, 180, 255, 0.6),
                 0 0 60px rgba(150, 180, 255, 0.4),
                 0 0 100px rgba(150,180,255,0.3),
                 inset 0 0 80px rgba(100,140,220,0.3);
     border: 1px solid rgba(150, 180, 255, 0.2);
-    color: #65000B !important;
+    color: #3a0107 !important;
     font-family: "Satisfy", cursive !important;
     font-size: 22px !important;
-    line-height: 2 !important;
+    line-height: 1.5 !important;
     text-align: center !important;
     min-height: 90vh !important;
     -webkit-backdrop-filter: blur(12px);
 
 }
 
-video[data-testid="stVideo"] {
+div[data-testid="stElementContainer"]:has(video[data-testid="stVideo"]) {
     position: fixed !important;
-    top: 2vh !important;
-    left: 2vw !important;
-    width: 96vw !important;
-    height: 96vh !important;
+    top: 1vh !important;
+    left: 1vw !important;
+    width: 98vw !important;
+    height: 98vh !important;
+    margin: 0 !important;
+    padding: 39px !important;
+    background: black !important;
+    border-radius: 20px !important;
+    box-sizing: border-box !important;
+    z-index: 0;
+}
+
+video[data-testid="stVideo"] {
+    width: 100% !important;
+    height: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
     object-fit: cover !important;
-    border-radius: 20px;
+    border-radius: 110px !important;
     display: block !important;
-    z-index: 0;
 }
+.love {
+    text-align: center;
+    font-size: 30px !important;
+    font-family: "Satisfy" !important;
+    margin-top: -14px !important;
+    color: #d8f4f6 !important;
+}
+.happy {
+    text-align: center;
+    font-size: 30px !important;
+    font-family: "Satisfy" !important;
+    margin-top: 445px !important;
+    color: #e4f5f8 !important;
+} 
+
